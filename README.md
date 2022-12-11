@@ -57,7 +57,7 @@ Response
 }
 
 ```
-post /users/id allows you to update the following user parameters
+patch /users/id allows you to update the following user parameters
 ```
 
 {
