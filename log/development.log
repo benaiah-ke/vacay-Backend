@@ -1,0 +1,1080 @@
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221211064338)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "phone_number" integer, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211064338"]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20221211071856)
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221211064338)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "phone_number" integer, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211064338"]]
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20221211071856)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "adults" integer, "kids" integer, "start_date" datetime(6), "end_date" datetime(6), "user_id" integer, "destination_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_destination_id" ON "reservations" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211071856"]]
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20221211075645)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar, "meals" varchar, "activities" varchar, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211075645"]]
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-11 08:14:56.028194"], ["updated_at", "2022-12-11 08:14:56.028194"]]
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for 127.0.0.1 at 2022-12-11 11:18:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/users"):
+  
+Started POST "/signup" for 127.0.0.1 at 2022-12-11 11:19:11 +0300
+  
+SyntaxError (/home/moringa/Rails/travels/app/controllers/users_controller.rb:47: syntax error, unexpected ':', expecting ')'
+...s.permit(:name, :phone_number :password, :password_confirmat...
+...                              ^
+/home/moringa/Rails/travels/app/controllers/users_controller.rb:47: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+...ssword, :password_confirmation)
+...                              ^
+):
+  
+app/controllers/users_controller.rb:47: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:47: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+app/controllers/users_controller.rb:47: syntax error, unexpected ':', expecting ')'
+app/controllers/users_controller.rb:47: syntax error, unexpected ')', expecting '.' or &. or :: or '['
+Started POST "/signup" for 127.0.0.1 at 2022-12-11 11:19:50 +0300
+  
+ArgumentError (Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.):
+  
+app/models/user.rb:5:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+Started POST "/signup" for 127.0.0.1 at 2022-12-11 11:20:32 +0300
+  
+ArgumentError (Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.):
+  
+app/models/user.rb:5:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+Started POST "/signup" for 127.0.0.1 at 2022-12-11 11:21:25 +0300
+  
+ArgumentError (Range unspecified. Specify the :in, :within, :maximum, :minimum, or :is option.):
+  
+app/models/user.rb:5:in `<class:User>'
+app/models/user.rb:1:in `<top (required)>'
+Started POST "/signup" for 127.0.0.1 at 2022-12-11 11:23:59 +0300
+Processing by UsersController#create as */*
+  Parameters: {"username"=>"tester", "email"=>"testuser@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{}}
+[31mUnpermitted parameters: :username, :email, :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f073860eaf0>, params: {"username"=>"tester", "email"=>"testuser@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 422 Unprocessable Entity in 404ms (Views: 3.0ms | ActiveRecord: 0.9ms | Allocations: 40692)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-11 11:24:47 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "name":"tester",
+  "phone_number":0795289737,
+  "password":"xxxxxxxxx",
+  "password_confirmation":"xxxxxxxx"
+}
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 127)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/users_controller.rb:47:in `user_params'
+app/controllers/users_controller.rb:17:in `create'
+Started POST "/signup" for 127.0.0.1 at 2022-12-11 11:26:28 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "name":"tester",
+  "phone_number":0795289737,
+  "password":"wafula254",
+  "password_confirmation":"wafula254"
+}
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 122)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/users_controller.rb:47:in `user_params'
+app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "phone_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "wafula254"], ["phone_number", 795289737], ["password_digest", "[FILTERED]"], ["created_at", "2022-12-11 08:29:31.503672"], ["updated_at", "2022-12-11 08:29:31.503672"]]
+  [1m[36mTRANSACTION (11.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users" for 127.0.0.1 at 2022-12-11 11:30:13 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "name":"tester",
+  "phone_number":0795289737,
+  "password":"wafula254",
+  "password_confirmation":"wafula254"
+}
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (25.97ms)
+Completed 200 OK in 47ms (Views: 46.7ms | ActiveRecord: 1.1ms | Allocations: 14973)
+
+
+Started GET "/destinations" for 127.0.0.1 at 2022-12-11 11:30:30 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "name":"tester",
+  "phone_number":0795289737,
+  "password":"wafula254",
+  "password_confirmation":"wafula254"
+}
+Processing by DestinationsController#index as */*
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 1714)
+
+
+  
+NameError (uninitialized constant DestinationsController::TravelExperience):
+  
+app/controllers/destinations_controller.rb:8:in `index'
+Started GET "/destinations" for 127.0.0.1 at 2022-12-11 11:30:56 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "name":"tester",
+  "phone_number":0795289737,
+  "password":"wafula254",
+  "password_confirmation":"wafula254"
+}
+Processing by DestinationsController#index as */*
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/controllers/destinations_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.06ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 1017)
+
+
+Started POST "/destinations" for 127.0.0.1 at 2022-12-11 11:31:05 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "name":"tester",
+  "phone_number":0795289737,
+  "password":"wafula254",
+  "password_confirmation":"wafula254"
+}
+Processing by DestinationsController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 119)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/destinations_controller.rb:41:in `destination_params'
+app/controllers/destinations_controller.rb:20:in `create'
+Started POST "/destinations" for 127.0.0.1 at 2022-12-11 11:32:42 +0300
+Processing by DestinationsController#create as */*
+  Parameters: {"destination"=>"Kilimambogo", "meals"=>"ice", "activities"=>"hiking", "price"=>4500}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/destinations_controller.rb:20:in `create'
+  [1m[36mDestination Create (0.6ms)[0m  [1m[32mINSERT INTO "destinations" ("destination", "meals", "activities", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["destination", "Kilimambogo"], ["meals", "ice"], ["activities", "hiking"], ["price", 4500], ["created_at", "2022-12-11 08:32:43.014487"], ["updated_at", "2022-12-11 08:32:43.014487"]]
+  ↳ app/controllers/destinations_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/destinations_controller.rb:20:in `create'
+[active_model_serializers] Rendered DestinationSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 201 Created in 36ms (Views: 2.9ms | ActiveRecord: 12.5ms | Allocations: 17363)
+
+
+Started GET "/destinations" for 127.0.0.1 at 2022-12-11 11:32:58 +0300
+Processing by DestinationsController#index as */*
+  Parameters: {"destination"=>"Kilimambogo", "meals"=>"ice", "activities"=>"hiking", "price"=>4500}
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/controllers/destinations_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.2ms | Allocations: 877)
+
+
+Started GET "/destinations/1" for 127.0.0.1 at 2022-12-11 11:33:03 +0300
+Processing by DestinationsController#show as */*
+  Parameters: {"destination"=>"Kilimambogo", "meals"=>"ice", "activities"=>"hiking", "price"=>4500, "id"=>"1"}
+  [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/destinations_controller.rb:14:in `show'
+[active_model_serializers] Rendered DestinationSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 845)
+
+
+Started PATCH "/destinations/1" for 127.0.0.1 at 2022-12-11 11:33:19 +0300
+Processing by DestinationsController#update as */*
+  Parameters: {"destination"=>"Kilimambogo", "meals"=>"ice", "activities"=>"Eating", "price"=>4500, "id"=>"1"}
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/destinations_controller.rb:26:in `update'
+[31mUnpermitted parameter: :id. Context: { controller: DestinationsController, action: update, request: #<ActionDispatch::Request:0x00007f0738ceb328>, params: {"destination"=>"Kilimambogo", "meals"=>"ice", "activities"=>"Eating", "price"=>4500, "controller"=>"destinations", "action"=>"update", "id"=>"1"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/destinations_controller.rb:27:in `update'
+  [1m[36mDestination Update (0.3ms)[0m  [1m[33mUPDATE "destinations" SET "activities" = ?, "updated_at" = ? WHERE "destinations"."id" = ?[0m  [["activities", "Eating"], ["updated_at", "2022-12-11 08:33:19.587100"], ["id", 1]]
+  ↳ app/controllers/destinations_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/destinations_controller.rb:27:in `update'
+[active_model_serializers] Rendered DestinationSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 201 Created in 20ms (Views: 1.3ms | ActiveRecord: 10.9ms | Allocations: 2561)
+
+
+Started GET "/destinations/2" for 127.0.0.1 at 2022-12-11 11:33:47 +0300
+Processing by DestinationsController#show as */*
+  Parameters: {"destination"=>"Kilimambogo", "meals"=>"ice", "activities"=>"Eating", "price"=>4500, "id"=>"2"}
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/destinations_controller.rb:14:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 404 Not Found in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 689)
+
+
+Started POST "/destinations" for 127.0.0.1 at 2022-12-11 11:34:02 +0300
+Processing by DestinationsController#create as */*
+  Parameters: {"destination"=>"Kilimambogo", "meals"=>"ice"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 422 Unprocessable Entity in 6ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2225)
+
+
+Started POST "/destinations" for 127.0.0.1 at 2022-12-11 11:34:14 +0300
+Processing by DestinationsController#create as */*
+  Parameters: {"destination"=>{}}
+[31mUnpermitted parameter: :destination. Context: { controller: DestinationsController, action: create, request: #<ActionDispatch::Request:0x00007f073c087830>, params: {"controller"=>"destinations", "action"=>"create", "destination"=>{}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 422 Unprocessable Entity in 10ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 3897)
+
+
+  [1m[36mDestination Load (0.5ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDestination Load (0.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 11:40:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#create as */*
+  Parameters: {"reservation"=>{}}
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.5ms | Allocations: 1831)
+
+
+  
+NameError (undefined local variable or method `review_params' for #<ReservationsController:0x0000000000bba8>):
+  
+app/controllers/reservations_controller.rb:14:in `create'
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221211064338)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "phone_number" integer, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211064338"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20221211071856)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "adults" integer, "kids" integer, "start_date" date, "end_date" date, "user_id" integer, "destination_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_destination_id" ON "reservations" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211071856"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20221211075645)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar, "meals" varchar, "activities" varchar, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211075645"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-11 08:41:49.146832"], ["updated_at", "2022-12-11 08:41:49.146832"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "phone_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "wafula254"], ["phone_number", 795289737], ["password_digest", "[FILTERED]"], ["created_at", "2022-12-11 08:42:50.142660"], ["updated_at", "2022-12-11 08:42:50.142660"]]
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDestination Create (0.2ms)[0m  [1m[32mINSERT INTO "destinations" ("destination", "meals", "activities", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["destination", "Kilima Mbogo"], ["meals", "waru"], ["activities", "hiking"], ["price", 4500], ["created_at", "2022-12-11 08:44:26.734405"], ["updated_at", "2022-12-11 08:44:26.734405"]]
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mReservation Create (0.3ms)[0m  [1m[32mINSERT INTO "reservations" ("adults", "kids", "start_date", "end_date", "user_id", "destination_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["adults", 1], ["kids", 0], ["start_date", 1994], ["end_date", 1979], ["user_id", 1], ["destination_id", 1], ["created_at", "2022-12-11 08:45:54.651246"], ["updated_at", "2022-12-11 08:45:54.651246"]]
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221211064338)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "phone_number" integer, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211064338"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20221211071856)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "adults" integer, "kids" integer, "start_date" datetime(6), "end_date" datetime(6), "user_id" integer, "destination_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_destination_id" ON "reservations" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211071856"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20221211075645)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar, "meals" varchar, "activities" varchar, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211075645"]]
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-11 08:50:16.133841"], ["updated_at", "2022-12-11 08:50:16.133841"]]
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "phone_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "wafula254"], ["phone_number", 795289737], ["password_digest", "[FILTERED]"], ["created_at", "2022-12-11 08:50:34.163123"], ["updated_at", "2022-12-11 08:50:34.163123"]]
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDestination Create (0.5ms)[0m  [1m[32mINSERT INTO "destinations" ("destination", "meals", "activities", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["destination", "Kilima Mbogo"], ["meals", "waru"], ["activities", "hiking"], ["price", 4500], ["created_at", "2022-12-11 08:50:37.863606"], ["updated_at", "2022-12-11 08:50:37.863606"]]
+  [1m[36mTRANSACTION (10.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 11:55:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ReservationsController#create as */*
+  Parameters: {"reservation"=>{}}
+[31mUnpermitted parameter: :reservation. Context: { controller: ReservationsController, action: create, request: #<ActionDispatch::Request:0x00007f16f4ba50d8>, params: {"controller"=>"reservations", "action"=>"create", "reservation"=>{}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 422 Unprocessable Entity in 62ms (Views: 2.0ms | ActiveRecord: 1.0ms | Allocations: 51889)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 11:55:59 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "destination":"Kibera",
+  "adults":1,
+  ""
+}
+Processing by ReservationsController#create as */*
+Completed 400 Bad Request in 1ms (Allocations: 134)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/reservations_controller.rb:28:in `reservation_params'
+app/controllers/reservations_controller.rb:14:in `create'
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 11:56:08 +0300
+Processing by ReservationsController#create as */*
+  Parameters: {"destination"=>"Kibera", "adults"=>1, "reservation"=>{"adults"=>1}}
+[31mUnpermitted parameters: :destination, :reservation. Context: { controller: ReservationsController, action: create, request: #<ActionDispatch::Request:0x00007f16f45de938>, params: {"destination"=>"Kibera", "adults"=>1, "controller"=>"reservations", "action"=>"create", "reservation"=>{"adults"=>1}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 422 Unprocessable Entity in 27ms (Views: 1.4ms | ActiveRecord: 1.5ms | Allocations: 10655)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 11:57:58 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "destination":"Kibera",
+  "adults":1,
+  "kids":0,
+  "start_date":2022-12-11,
+  "end_date":2022-12-31,
+  "user_id":1,
+  "destination_id":1
+}
+Processing by ReservationsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 125)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/reservations_controller.rb:28:in `reservation_params'
+app/controllers/reservations_controller.rb:14:in `create'
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 11:58:53 +0300
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "destination":"Kibera",
+  "adults":1,
+  "kids":0,
+  "start_date":2022-12-11,
+  "end_date":2022-12-31,
+  "user_id":1,
+  "destination_id":1
+}
+Processing by ReservationsController#create as */*
+Completed 400 Bad Request in 0ms (Allocations: 135)
+
+
+  
+ActionDispatch::Http::Parameters::ParseError (Error occurred while parsing request parameters):
+  
+app/controllers/reservations_controller.rb:28:in `reservation_params'
+app/controllers/reservations_controller.rb:14:in `create'
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 11:59:34 +0300
+Processing by ReservationsController#create as */*
+  Parameters: {"destination"=>"Kibera", "adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1}}
+[31mUnpermitted parameters: :destination, :reservation. Context: { controller: ReservationsController, action: create, request: #<ActionDispatch::Request:0x00007f16f48f33a8>, params: {"destination"=>"Kibera", "adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "controller"=>"reservations", "action"=>"create", "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mDestination Load (6.3ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mReservation Create (0.6ms)[0m  [1m[32mINSERT INTO "reservations" ("adults", "kids", "start_date", "end_date", "user_id", "destination_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["adults", 1], ["kids", 0], ["start_date", "2022-12-11 00:00:00"], ["end_date", "2022-12-31 00:00:00"], ["user_id", 1], ["destination_id", 1], ["created_at", "2022-12-11 08:59:35.056258"], ["updated_at", "2022-12-11 08:59:35.056258"]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+[active_model_serializers] Rendered ReservationSerializer with ActiveModelSerializers::Adapter::Attributes (2.82ms)
+Completed 201 Created in 95ms (Views: 23.3ms | ActiveRecord: 14.7ms | Allocations: 44672)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 12:02:32 +0300
+Processing by ReservationsController#create as */*
+  Parameters: {"destination"=>"Kilimanjaro", "adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1}}
+[31mUnpermitted parameters: :destination, :reservation. Context: { controller: ReservationsController, action: create, request: #<ActionDispatch::Request:0x00007f16f4a08a18>, params: {"destination"=>"Kilimanjaro", "adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "controller"=>"reservations", "action"=>"create", "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mReservation Create (0.5ms)[0m  [1m[32mINSERT INTO "reservations" ("adults", "kids", "start_date", "end_date", "user_id", "destination_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["adults", 1], ["kids", 0], ["start_date", "2022-12-11 00:00:00"], ["end_date", "2022-12-31 00:00:00"], ["user_id", 1], ["destination_id", 1], ["created_at", "2022-12-11 09:02:32.511999"], ["updated_at", "2022-12-11 09:02:32.511999"]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+[active_model_serializers] Rendered ReservationSerializer with ActiveModelSerializers::Adapter::Attributes (6.03ms)
+Completed 201 Created in 82ms (Views: 8.5ms | ActiveRecord: 18.1ms | Allocations: 13467)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 12:02:59 +0300
+Processing by ReservationsController#create as */*
+  Parameters: {"destination"=>"Kilimanjaro", "adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1}}
+[31mUnpermitted parameters: :destination, :reservation. Context: { controller: ReservationsController, action: create, request: #<ActionDispatch::Request:0x00007f170009c9a0>, params: {"destination"=>"Kilimanjaro", "adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "controller"=>"reservations", "action"=>"create", "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-11", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mReservation Create (2.1ms)[0m  [1m[32mINSERT INTO "reservations" ("adults", "kids", "start_date", "end_date", "user_id", "destination_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["adults", 1], ["kids", 0], ["start_date", "2022-12-11 00:00:00"], ["end_date", "2022-12-31 00:00:00"], ["user_id", 1], ["destination_id", 1], ["created_at", "2022-12-11 09:02:59.222957"], ["updated_at", "2022-12-11 09:02:59.222957"]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (12.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+[active_model_serializers] Rendered ReservationSerializer with ActiveModelSerializers::Adapter::Attributes (7.4ms)
+Completed 201 Created in 95ms (Views: 12.9ms | ActiveRecord: 20.8ms | Allocations: 13904)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-12-11 12:04:50 +0300
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Charles Wafula", "phone_number"=>795289737, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"Charles Wafula", "phone_number"=>795289737}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f16e8008290>, params: {"name"=>"Charles Wafula", "phone_number"=>795289737, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"name"=>"Charles Wafula", "phone_number"=>795289737}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "phone_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Charles Wafula"], ["phone_number", 795289737], ["password_digest", "[FILTERED]"], ["created_at", "2022-12-11 09:04:51.072626"], ["updated_at", "2022-12-11 09:04:51.072626"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (10.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+[active_model_serializers]   [1m[36mReservation Load (0.6ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:20:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (17.49ms)
+Completed 201 Created in 398ms (Views: 18.3ms | ActiveRecord: 11.1ms | Allocations: 5799)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-11 12:06:31 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"name"=>"Charles Wafula", "password"=>"[FILTERED]", "session"=>{"name"=>"Charles Wafula", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Charles Wafula"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers]   [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (7.76ms)
+Completed 201 Created in 341ms (Views: 9.0ms | ActiveRecord: 2.3ms | Allocations: 9068)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-11 12:06:40 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"name"=>"Charles Wafula", "password"=>"[FILTERED]", "session"=>{"name"=>"Charles Wafula", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Charles Wafula"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 401 Unauthorized in 324ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 715)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-11 12:06:51 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"name"=>"Charles Wafula", "password"=>"[FILTERED]", "session"=>{"name"=>"Charles Wafula", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Charles Wafula"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers]   [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.23ms)
+Completed 201 Created in 337ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 1731)
+
+
+Started POST "/logout" for 127.0.0.1 at 2022-12-11 12:07:02 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/logout"):
+  
+Started GET "/users" for 127.0.0.1 at 2022-12-11 12:07:34 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (40.63ms)
+Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 2.1ms | Allocations: 5713)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-12-11 12:07:44 +0300
+Processing by UsersController#user_details as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `user_details'
+[31mUnpermitted parameter: :id. Context: { controller: UsersController, action: user_details, request: #<ActionDispatch::Request:0x00007f16f82b0078>, params: {"controller"=>"users", "action"=>"user_details", "id"=>"1"} }[0m
+Completed 422 Unprocessable Entity in 17ms (ActiveRecord: 0.5ms | Allocations: 2010)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Password can't be blank, Password is too short (minimum is 8 characters)):
+  
+app/controllers/users_controller.rb:29:in `user_details'
+Started GET "/users" for 127.0.0.1 at 2022-12-11 12:08:01 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.49ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.8ms | Allocations: 3395)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-12-11 12:08:16 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.87ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.7ms | Allocations: 3394)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-12-11 12:08:34 +0300
+Processing by UsersController#user_details as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `user_details'
+[31mUnpermitted parameter: :id. Context: { controller: UsersController, action: user_details, request: #<ActionDispatch::Request:0x00007f16ec270740>, params: {"controller"=>"users", "action"=>"user_details", "id"=>"1"} }[0m
+Completed 422 Unprocessable Entity in 10ms (ActiveRecord: 0.3ms | Allocations: 1635)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Password can't be blank, Password is too short (minimum is 8 characters)):
+  
+app/controllers/users_controller.rb:29:in `user_details'
+Started GET "/users/1" for 127.0.0.1 at 2022-12-11 12:09:53 +0300
+Processing by UsersController#user_details as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `user_details'
+[31mUnpermitted parameter: :id. Context: { controller: UsersController, action: user_details, request: #<ActionDispatch::Request:0x00007f16e8010030>, params: {"controller"=>"users", "action"=>"user_details", "id"=>"1"} }[0m
+Completed 422 Unprocessable Entity in 8ms (ActiveRecord: 0.3ms | Allocations: 1640)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Password can't be blank, Password is too short (minimum is 8 characters)):
+  
+app/controllers/users_controller.rb:29:in `user_details'
+Started GET "/users/" for 127.0.0.1 at 2022-12-11 12:10:07 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.4ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 1.1ms | Allocations: 3395)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-11 12:11:06 +0300
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:6:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (33.21ms)
+Completed 200 OK in 59ms (Views: 49.5ms | ActiveRecord: 3.6ms | Allocations: 12898)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-12-11 12:11:11 +0300
+Processing by UsersController#user_details as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `user_details'
+[31mUnpermitted parameter: :id. Context: { controller: UsersController, action: user_details, request: #<ActionDispatch::Request:0x00007f16ec276a78>, params: {"controller"=>"users", "action"=>"user_details", "id"=>"1"} }[0m
+Completed 422 Unprocessable Entity in 12ms (ActiveRecord: 0.5ms | Allocations: 1883)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Password can't be blank, Password is too short (minimum is 8 characters)):
+  
+app/controllers/users_controller.rb:29:in `user_details'
+Started GET "/users/1" for 127.0.0.1 at 2022-12-11 12:12:08 +0300
+Processing by UsersController#user_details as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `user_details'
+[31mUnpermitted parameter: :id. Context: { controller: UsersController, action: user_details, request: #<ActionDispatch::Request:0x00007f16ec4131d8>, params: {"controller"=>"users", "action"=>"user_details", "id"=>"1"} }[0m
+Completed 422 Unprocessable Entity in 20ms (ActiveRecord: 1.3ms | Allocations: 5398)
+
+
+  
+ActiveRecord::RecordInvalid (Validation failed: Password can't be blank, Password is too short (minimum is 8 characters)):
+  
+app/controllers/users_controller.rb:29:in `user_details'
+Started GET "/users/1" for 127.0.0.1 at 2022-12-11 12:12:48 +0300
+  
+AbstractController::ActionNotFound (The action 'user_details' could not be found for UsersController):
+  
+actionpack (7.0.4) lib/abstract_controller/base.rb:146:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/cookies.rb:696:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/users/1" for 127.0.0.1 at 2022-12-11 12:13:26 +0300
+Processing by UsersController#user as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `user'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (24.97ms)
+Completed 200 OK in 45ms (Views: 25.5ms | ActiveRecord: 4.2ms | Allocations: 11633)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2022-12-11 12:14:26 +0300
+Processing by UsersController#user as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `user'
+[active_model_serializers]   [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:29:in `user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (16.99ms)
+Completed 200 OK in 32ms (Views: 19.0ms | ActiveRecord: 2.2ms | Allocations: 8871)
+
+
+Started PATCH "/users/2" for 127.0.0.1 at 2022-12-11 12:15:36 +0300
+Processing by UsersController#user as */*
+  Parameters: {"name"=>"wafula masinde", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"2", "user"=>{"name"=>"wafula masinde"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `user'
+[active_model_serializers]   [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:29:in `user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.0ms)
+Completed 200 OK in 10ms (Views: 5.9ms | ActiveRecord: 0.6ms | Allocations: 1557)
+
+
+Started PATCH "/users/2" for 127.0.0.1 at 2022-12-11 12:15:58 +0300
+Processing by UsersController#user as */*
+  Parameters: {"name"=>"wafula masinde", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"2", "user"=>{"name"=>"wafula masinde"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `user'
+[active_model_serializers]   [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:29:in `user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.31ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.3ms | Allocations: 1557)
+
+
+Started PATCH "/users/2" for 127.0.0.1 at 2022-12-11 12:16:42 +0300
+Processing by UsersController#user as */*
+  Parameters: {"name"=>"wafula masinde", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "id"=>"2", "user"=>{"name"=>"wafula masinde"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28:in `user'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: user, request: #<ActionDispatch::Request:0x00007f16f8298900>, params: {"name"=>"wafula masinde", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"user", "id"=>"2", "user"=>{"name"=>"wafula masinde"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:29:in `user'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "wafula masinde"], ["password_digest", "[FILTERED]"], ["updated_at", "2022-12-11 09:16:42.892057"], ["id", 2]]
+  ↳ app/controllers/users_controller.rb:29:in `user'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:29:in `user'
+[active_model_serializers]   [1m[36mReservation Load (1.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:30:in `user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (16.95ms)
+Completed 200 OK in 379ms (Views: 17.2ms | ActiveRecord: 8.2ms | Allocations: 8788)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-11 12:19:10 +0300
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"wafula masinde", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"wafula masinde"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.59ms)
+Completed 200 OK in 46ms (Views: 43.3ms | ActiveRecord: 3.8ms | Allocations: 10736)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-11 12:23:27 +0300
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"wafula masinde", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"wafula masinde"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.06ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.6ms | Allocations: 3394)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-11 12:23:30 +0300
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"wafula masinde", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"wafula masinde"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.4ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.5ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 2]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.5ms)
+Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 1.4ms | Allocations: 3394)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-11 12:23:47 +0300
+  [1m[35m (12.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 3 pending migrations:
+
+20221211064338_create_users.rb
+20221211071856_create_reservations.rb
+20221211075645_create_destinations.rb
+
+
+):
+  
+activerecord (7.0.4) lib/active_record/migration.rb:627:in `check_pending!'
+activerecord (7.0.4) lib/active_record/migration.rb:592:in `block (2 levels) in call'
+activesupport (7.0.4) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.4) lib/active_record/migration.rb:597:in `block in call'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `synchronize'
+activerecord (7.0.4) lib/active_record/migration.rb:589:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221211064338)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "phone_number" integer, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211064338"]]
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20221211071856)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "adults" integer, "kids" integer, "start_date" datetime(6), "end_date" datetime(6), "user_id" integer, "destination_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_destination_id" ON "reservations" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211071856"]]
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20221211075645)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar, "meals" varchar, "activities" varchar, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211075645"]]
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-11 09:24:14.378713"], ["updated_at", "2022-12-11 09:24:14.378713"]]
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/signup" for 127.0.0.1 at 2022-12-11 12:25:30 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"John Doe", "phone_number"=>712345678, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"John Doe", "phone_number"=>712345678}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00007f3a64b7d860>, params: {"name"=>"John Doe", "phone_number"=>712345678, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"users", "action"=>"create", "user"=>{"name"=>"John Doe", "phone_number"=>712345678}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "phone_number", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "John Doe"], ["phone_number", 712345678], ["password_digest", "[FILTERED]"], ["created_at", "2022-12-11 09:25:31.456553"], ["updated_at", "2022-12-11 09:25:31.456553"]]
+  ↳ app/controllers/users_controller.rb:4:in `create'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:4:in `create'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (38.49ms)
+Completed 201 Created in 452ms (Views: 58.9ms | ActiveRecord: 12.7ms | Allocations: 52425)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-12-11 12:27:36 +0300
+Processing by UsersController#index as */*
+  Parameters: {"name"=>"John Doe", "phone_number"=>712345678, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "user"=>{"name"=>"John Doe", "phone_number"=>712345678}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers]   [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:26:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.11ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.7ms | Allocations: 1871)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-12-11 12:28:38 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"name"=>"John Doe", "password"=>"[FILTERED]", "session"=>{"name"=>"John Doe", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "John Doe"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:4:in `create'
+[active_model_serializers]   [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:7:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.6ms)
+Completed 201 Created in 349ms (Views: 4.1ms | ActiveRecord: 0.8ms | Allocations: 1922)
+
+
+Started GET "/users/id" for 127.0.0.1 at 2022-12-11 12:29:58 +0300
+Processing by UsersController#user as */*
+  Parameters: {"name"=>"John Doe", "password"=>"[FILTERED]", "id"=>"id", "user"=>{"name"=>"John Doe"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `user'
+Completed 404 Not Found in 6ms (ActiveRecord: 0.5ms | Allocations: 655)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=id):
+  
+app/controllers/users_controller.rb:37:in `user'
+Started GET "/users/1" for 127.0.0.1 at 2022-12-11 12:30:03 +0300
+Processing by UsersController#user as */*
+  Parameters: {"name"=>"John Doe", "password"=>"[FILTERED]", "id"=>"1", "user"=>{"name"=>"John Doe"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:37:in `user'
+[31mUnpermitted parameters: :id, :user. Context: { controller: UsersController, action: user, request: #<ActionDispatch::Request:0x00007f3a74b8e678>, params: {"name"=>"John Doe", "password"=>"[FILTERED]", "controller"=>"users", "action"=>"user", "id"=>"1", "user"=>{"name"=>"John Doe"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `user'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["updated_at", "2022-12-11 09:30:03.881927"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:38:in `user'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:38:in `user'
+[active_model_serializers]   [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:39:in `user'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.53ms)
+Completed 200 OK in 379ms (Views: 3.9ms | ActiveRecord: 11.1ms | Allocations: 3514)
+
+
+Started POST "/destinations" for 127.0.0.1 at 2022-12-11 12:34:39 +0300
+Processing by DestinationsController#create as */*
+  Parameters: {"destination"=>"Kilimanjaro", "meals"=>"grilled meat", "activities"=>"hiking && swiming", "price"=>35000}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/destinations_controller.rb:20:in `create'
+  [1m[36mDestination Create (0.4ms)[0m  [1m[32mINSERT INTO "destinations" ("destination", "meals", "activities", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["destination", "Kilimanjaro"], ["meals", "grilled meat"], ["activities", "hiking && swiming"], ["price", 35000], ["created_at", "2022-12-11 09:34:39.660097"], ["updated_at", "2022-12-11 09:34:39.660097"]]
+  ↳ app/controllers/destinations_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/destinations_controller.rb:20:in `create'
+[active_model_serializers] Rendered DestinationSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 201 Created in 80ms (Views: 4.1ms | ActiveRecord: 12.5ms | Allocations: 17320)
+
+
+Started GET "/destinations" for 127.0.0.1 at 2022-12-11 12:35:58 +0300
+Processing by DestinationsController#index as */*
+  Parameters: {"destination"=>"Kilimanjaro", "meals"=>"grilled meat", "activities"=>"hiking && swiming", "price"=>35000}
+  [1m[36mDestination Load (0.4ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/controllers/destinations_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.2ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.4ms | Allocations: 937)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2022-12-11 12:38:09 +0300
+Processing by ReservationsController#index as */*
+  Parameters: {"destination"=>"Kilimanjaro", "meals"=>"grilled meat", "activities"=>"hiking && swiming", "price"=>35000, "reservation"=>{}}
+  [1m[36mReservation Load (5.8ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/reservations_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 14ms (Views: 6.4ms | ActiveRecord: 5.8ms | Allocations: 782)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 12:40:03 +0300
+Processing by ReservationsController#create as */*
+  Parameters: {"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1, "destiation_id"=>1, "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1}}
+[31mUnpermitted parameters: :destiation_id, :reservation. Context: { controller: ReservationsController, action: create, request: #<ActionDispatch::Request:0x00007f3a74a4d200>, params: {"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1, "destiation_id"=>1, "controller"=>"reservations", "action"=>"create", "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 422 Unprocessable Entity in 144ms (Views: 2.5ms | ActiveRecord: 3.3ms | Allocations: 22980)
+
+
+Started POST "/reservations" for 127.0.0.1 at 2022-12-11 12:40:18 +0300
+Processing by ReservationsController#create as */*
+  Parameters: {"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1}}
+[31mUnpermitted parameter: :reservation. Context: { controller: ReservationsController, action: create, request: #<ActionDispatch::Request:0x00007f3a5c047a20>, params: {"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "controller"=>"reservations", "action"=>"create", "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mDestination Load (0.5ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mReservation Create (0.6ms)[0m  [1m[32mINSERT INTO "reservations" ("adults", "kids", "start_date", "end_date", "user_id", "destination_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["adults", 1], ["kids", 0], ["start_date", "2022-12-17 00:00:00"], ["end_date", "2022-12-31 00:00:00"], ["user_id", 1], ["destination_id", 1], ["created_at", "2022-12-11 09:40:18.780062"], ["updated_at", "2022-12-11 09:40:18.780062"]]
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/reservations_controller.rb:14:in `create'
+[active_model_serializers] Rendered ReservationSerializer with ActiveModelSerializers::Adapter::Attributes (1.86ms)
+Completed 201 Created in 39ms (Views: 5.9ms | ActiveRecord: 12.5ms | Allocations: 4684)
+
+
+Started GET "/reservations" for 127.0.0.1 at 2022-12-11 12:41:16 +0300
+Processing by ReservationsController#index as */*
+  Parameters: {"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "reservation"=>{"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1}}
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/reservations_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mDestination Load (0.2ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations" WHERE "destinations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/reservations_controller.rb:9:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/reservations_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.54ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.7ms | Allocations: 2911)
+
+
+Started GET "/destinations" for 127.0.0.1 at 2022-12-11 12:43:38 +0300
+Processing by DestinationsController#index as */*
+  Parameters: {"adults"=>1, "kids"=>0, "start_date"=>"2022-12-17", "end_date"=>"2022-12-31", "user_id"=>1, "destination_id"=>1, "destination"=>{}}
+  [1m[36mDestination Load (0.1ms)[0m  [1m[34mSELECT "destinations".* FROM "destinations"[0m
+  ↳ app/controllers/destinations_controller.rb:9:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 877)
+
+
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20221211064338)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "phone_number" integer, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211064338"]]
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateReservations (20221211071856)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "adults" integer, "kids" integer, "start_date" datetime(6), "end_date" datetime(6), "user_id" integer, "destination_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_reservations_on_destination_id" ON "reservations" ("destination_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211071856"]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDestinations (20221211075645)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "destinations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "destination" varchar, "image_url" varchar, "meals" varchar, "activities" varchar, "price" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221211075645"]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-11 14:59:09.932179"], ["updated_at", "2022-12-11 14:59:09.932179"]]
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
